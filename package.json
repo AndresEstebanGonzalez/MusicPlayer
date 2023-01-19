@@ -1,0 +1,22 @@
+{
+  "name": "musicplayer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndresEstebanGonzalez/MusicPlayer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndresEstebanGonzalez/MusicPlayer/issues"
+  },
+  "homepage": "https://github.com/AndresEstebanGonzalez/MusicPlayer#readme",
+  "dependencies": {
+    "node-id3": "^0.2.5"
+  }
+}
