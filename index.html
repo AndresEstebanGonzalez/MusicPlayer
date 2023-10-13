@@ -1,98 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MusicPlayer</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="main">
-      <div class="full-container">
-        <div class="top-container">
-          <div class="top-menu-bar">
-            <button class="btn player-hamburger-btn" id="playerHamburgerBtn">
-              <img src="./assets/images/menu-button.png" alt="Menu Button" />
-            </button>
-            <audio id="songAudio"></audio>
-            <input
-              type="file"
-              accept=".mp3,audio"
-              style="display: none"
-              class="player-browse-btn-action"
-              id="playerBrowseBtnAction"
-              multiple
-            />
-            <button class="btn player-search-btn" id="playerSearchBtn">
-              <img
-                src="./assets/images/search-button.png"
-                alt="Search Button"
-              />
-            </button>
-          </div>
-          <p id="songInformationOutput"></p>
-          <div class="album-cover-container">
-            <img
-              id="centerAlbumImage"
-              src="./assets/images/flamingosis-cover-image.jpg"
-              alt="Flamingosis artist album cover image"
-            />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MusicPlayer</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <div class="main">
+    <div class="full-container" id="musicPlayer">
+      <div class="top-container">
+        <div class="top-menu-bar">
+          <button class="btn player-hamburger-btn" id="playerHamburgerBtn">
+            <img src="./assets/images/menu-button.png" alt="Menu Button" />
+          </button>
+
+          <label class="btn player-search-btn" for="playerSearchBtnAction" id="playerSearchBtn">
+            <img src="./assets/images/open-file.png" alt="Search Button" />
+          </label>
+          <input type="file" accept=".mp3,audio" style="display: none" class="player-search-btn-action"
+            id="playerSearchBtnAction" multiple />
+        </div>
+        <div class="queue-container" id="queueContainer">
+
+        </div>
+        <div class="album-cover-container">
+          <img id="centerAlbumImage" src="./assets/images/music-logo.png" alt="ALbum cover image" />
+        </div>
+
+      </div>
+
+
+      <div class="bottom-container">
+        <div class="song-data-container">
+          <p class="song-name-data" id="songNameData"></p>
+          <p class="song-artist-data" id="songArtistData"></p>
+        </div>
+        <div class="bottom-top-container">
+          <div class="song-progress-section">
+            <input type="range" class="progress-bar" name="progress-bar" id="songProgressBar" min="0" value="0" />
+            <div class="song-start-end-data-container">
+              <p class="song-start-data" id="songStartData"></p>
+              <p class="song-end-data" id="songEndData"></p>
+            </div>
           </div>
         </div>
-        <div class="bottom-container">
-          <div class="bottom-top-container">
-            <div class="song-data-container">
-              <p class="song-name-data" id="songNameData">SONG NAME</p>
-              <p class="song-artist-data" id="songArtistData">SONG ARTIST</p>
-            </div>
-            <div class="song-progress-section">
-              <input
-                type="range"
-                class="progress-bar"
-                name="progress-bar"
-                id="songProgressBar"
-              />
-              <div class="song-start-end-data-container">
-                <p class="song-start-data" id="songStartData">00:00</p>
-                <p class="song-end-data" id="songEndData">03:00</p>
-              </div>
-            </div>
-          </div>
-          <div class="bottom-bottom-container">
-            <div class="player-reproduccion-container">
-              <button class="btn player-shuffle-btn" id="playerShuffleBtn">
-                <img
-                  src="./assets/images/shuffle-button.png"
-                  alt="Shuffle Button"
-                />
-              </button>
-              <button class="btn player-reverse-btn" id="playerReverseBtn">
-                <img
-                  src="./assets/images/reverse-button.png"
-                  alt="Rewind Button"
-                />
-              </button>
-              <button class="btn player-play-btn" id="playerPlayBtn">
-                <img src="./assets/images/play-button.png" alt="Play Button" />
-              </button>
-              <button class="btn player-foward-btn" id="playerFowardBtn">
-                <img
-                  src="./assets/images/forward-button.png"
-                  alt="Foward Button"
-                />
-              </button>
-              <button class="btn player-repeat-btn" id="playerRepeatBtn">
-                <img
-                  src="./assets/images/repeat-button.png"
-                  alt="Repeat Button"
-                />
-              </button>
-            </div>
+        <div class="bottom-bottom-container">
+          <div class="player-reproduccion-container">
+            <button class="btn player-shuffle-btn" id="playerShuffleBtn">
+              <img src="./assets/images/shuffle-button.png" alt="Shuffle Button" />
+            </button>
+            <button class="btn player-reverse-btn" id="playerReverseBtn">
+              <img src="./assets/images/reverse-button.png" alt="Rewind Button" />
+            </button>
+            <button class="btn player-play-btn" id="playerPlayBtn">
+              <img src="./assets/images/play-button.png" alt="Play Button" />
+            </button>
+            <button class="btn player-play-btn" id="playerPauseBtn" style="display: none">
+              <img src="./assets/images/pause-button.png" alt="Pause Button" />
+            </button>
+            <button class="btn player-foward-btn" id="playerFowardBtn">
+              <img src="./assets/images/forward-button.png" alt="Foward Button" />
+            </button>
+            <button class="btn player-repeat-btn" id="playerRepeatBtn">
+              <img src="./assets/images/repeat-button.svg" alt="Repeat Button" />
+            </button>
           </div>
         </div>
       </div>
     </div>
-  </body>
-  <script src="script.js"></script>
+  </div>
+</body>
+<script src="script.js"></script>
+
 </html>
