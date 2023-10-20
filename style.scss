@@ -1,0 +1,172 @@
+//Fonts
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;200;300;400;700&display=swap");
+
+//Variables
+@import "./variables/colors";
+@import "./variables/mixins";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-size: 10px;
+  font-family: "Fira Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+.main {
+  @include flex;
+
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient($salmon, $light-purple-blue);
+
+  .full-container {
+    @include flex($direction: column);
+    width: 37.5rem;
+    height: 66.7rem;
+
+    background: linear-gradient($salmon, $light-purple-blue);
+    border: 0.4rem solid $black;
+    border-radius: 4rem;
+    .top-container {
+      width: 36.6rem;
+      height: 40rem;
+
+      border-radius: 3.6rem 3.6rem 0 0;
+      .top-menu-bar {
+        @include flex($justify: space-between);
+
+        margin: 2.8rem 2rem;
+        .btn {
+          margin: 0 1.8rem 0 1.8rem;
+          background: none;
+          border: none;
+
+          aspect-ratio: 1/1;
+        }
+        .player-hamburger-btn img {
+          width: 1.5rem;
+        }
+        .player-search-btn img {
+          width: 2rem;
+        }
+      }
+      .queue-container {
+        @include flex($direction: column, $justify: flex-start);
+        display: none;
+        height: 32rem;
+        padding: 0 1rem 1.5rem 1rem;
+        overflow-y: scroll;
+        .song-container {
+          @include flex($justify: flex-start, $align: stretch);
+          width: auto;
+          margin-bottom: 0.2rem;
+          padding: 0.5rem 1rem;
+          border-radius: 0.5rem;
+          cursor: pointer;
+
+          .song-left-container {
+            img {
+              margin-right: 1.5rem;
+              height: 5.5rem;
+              border-radius: 0.5rem;
+              aspect-ratio: 1/1;
+            }
+          }
+
+          .song-right-container {
+            @include flex($direction: column, $align: flex-start);
+            width: 25rem;
+            border-bottom: 0.1rem solid $dark-purple;
+            font-size: 1.3rem;
+          }
+        }
+      }
+      .album-cover-container {
+        @include flex;
+
+        margin-top: 2rem;
+        img {
+          height: 30rem;
+
+          border-radius: 2rem;
+        }
+      }
+    }
+    .bottom-container {
+      width: 36.6rem;
+      height: 26.6rem;
+      padding: 1.5rem 2rem 2rem 2rem;
+      border-radius: 0 0 3.6rem 3.6rem;
+      font-weight: 200;
+      color: $white;
+
+      .song-data-container {
+        height: 7rem;
+        margin-bottom: 1.5rem;
+        @include flex($direction: column);
+        .song-name-data {
+          font-size: 2rem;
+        }
+        .song-artist-data {
+          font-size: 1.3rem;
+        }
+      }
+
+      .bottom-top-container {
+        @include flex($direction: column);
+
+        width: auto;
+        margin: 1rem;
+        .song-progress-section {
+          width: auto;
+
+          margin-top: 0.5rem;
+
+          input {
+            width: 29rem;
+          }
+          .song-start-end-data-container {
+            @include flex($justify: space-between);
+            font-size: 1rem;
+          }
+        }
+      }
+      .bottom-bottom-container {
+        @include flex;
+        width: auto;
+        margin-top: 3rem;
+        .player-reproduccion-container {
+          @include flex;
+          .btn {
+            margin: 0 1.8rem 0 1.8rem;
+            background: none;
+            border: none;
+
+            aspect-ratio: 1/1;
+          }
+          .player-shuffle-btn img {
+            width: 1.5rem;
+          }
+          .player-reverse-btn img {
+            width: 2rem;
+          }
+          .player-play-btn img {
+            width: 5rem;
+          }
+          .player-foward-btn img {
+            width: 2rem;
+          }
+          .player-repeat-btn img {
+            width: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}
